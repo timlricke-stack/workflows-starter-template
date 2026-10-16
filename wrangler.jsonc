@@ -15,15 +15,30 @@
 		"enabled": true
 	},
 	/**
-	 * Workflows
-	 * Define Workflows to orchestrate multi-step processes
-	 * https://developers.cloudflare.com/workflows/
-	 */
-	"workflows": [
-		{
-			"name": "my-workflow",
-			"binding": "MY_WORKFLOW",
-			"class_name": "MyWorkflow"
+	 *{
+  // ...
+  "workflows": [
+    {
+      "binding": "MY_WORKFLOW",
+      "name": "my-workflow",
+      "class_name": "MyWorkflow"
+    }
+  ],
+  "ai": {
+    "binding": "workflow-starter-template"
+  },
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "WORKFLOW_STATUS",
+        "type": "durable_object_namespace",
+        "class_name": "WorkflowStatusDO",
+        "namespace_id": "2e22536907814c44850f5ac834c656f3"
+      }
+    ]
+  },
+  // ...
+}
 		}
 	],
 	/**
